@@ -7,7 +7,7 @@ header("Access-Control-Allow-Methods: POST");
 $host = "localhost";
 $db_name = "peka_db";
 $username = "peka_user";
-$password = "PasswordPeka123!"; // Ganti dengan password yang Anda buat di database
+$password = "PASSWORD_ANDA_DI_CLOUDPANEL"; // GANTI DENGAN PASSWORD YANG ANDA BUAT DI CLOUDPANEL
 
 try {
     $conn = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
@@ -26,11 +26,21 @@ try {
         $stmt->bindParam(":message", $data->message);
 
         if($stmt->execute()){
+            // KIRIM EMAIL NOTIFIKASI
+            $to = "official@pekamerawatnegeri.com";
+            $subject = "Pesan Baru dari Website: " . $data->name;
+            $email_content = "Nama: " . $data->name . "\n";
+            $email_content .= "Email: " . $data->email . "\n\n";
+            $email_content .= "Pesan:\n" . $data->message;
+            $headers = "From: webmaster@pekamerawatnegeri.com";
+
+            mail($to, $subject, $email_content, $headers);
+
             http_response_code(201);
             echo json_encode(array("message" => "Pesan berhasil terkirim."));
         } else {
             http_response_code(503);
-            echo json_encode(array("message" => "Gagal mengirim pesan."));
+            echo json_encode(array("message" => "Gagal mengirim pesan ke database."));
         }
     } else {
         http_response_code(400);
