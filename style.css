@@ -156,6 +156,22 @@ ul {
     transform: translateY(-1px);
 }
 
+.nav-links a.btn-submit-nav {
+    color: var(--secondary) !important;
+    border: 2px solid var(--secondary);
+    padding: 6px 15px !important;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.nav-links a.btn-submit-nav:hover {
+    background-color: var(--secondary);
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
 /* Dropdown Styles */
 .dropdown {
     position: relative;
