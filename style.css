@@ -137,6 +137,7 @@ ul {
     gap: 1.1rem;
     flex: 1;
     justify-content: center;
+    align-items: center; /* Memastikan semua menu sejajar vertikal */
 }
 
 .nav-links a {
@@ -175,7 +176,8 @@ ul {
 /* Dropdown Styles */
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-trigger {
