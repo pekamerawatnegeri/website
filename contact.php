@@ -5,9 +5,9 @@ header("Access-Control-Allow-Methods: POST");
 
 // Database credentials
 $host = "localhost";
-$db_name = "peka_db";
-$username = "peka_user";
-$password = "PASSWORD_ANDA_DI_CLOUDPANEL"; // GANTI DENGAN PASSWORD YANG ANDA BUAT DI CLOUDPANEL
+$db_name = "pekadb";
+$username = "pekauser";
+$password = "X3GoIcVQ24Y9I5g7kxjR";
 
 try {
     $conn = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
